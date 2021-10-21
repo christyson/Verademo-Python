@@ -73,7 +73,7 @@ jobs:
       with:
         pipeline-results-json: results.json
         output-results-sarif: veracode-results.sarif
-        finding-rule-level: "4:3:0"
+        finding-rule-level: "3:1:0"
     - uses: github/codeql-action/upload-sarif@v1
       with:
     # Path to SARIF file relative to the root of the repository
