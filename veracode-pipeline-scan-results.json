@@ -1,0 +1,103 @@
+{
+    "_links": {
+        "root": {
+            "href": "/"
+        },
+        "self": {
+            "href": "/scans/7b577d94-23bb-4ca1-b1fa-99dbc6c97157/findings"
+        },
+        "help": {
+            "href": "https://help.veracode.com/reader/tS9CaFwL4_lbIEWWomsJoA/ovfZGgu96UINQxIuTqRDwg"
+        }
+    },
+    "scan_id": "7b577d94-23bb-4ca1-b1fa-99dbc6c97157",
+    "scan_status": "SUCCESS",
+    "message": "Scan successful. Results size: 3983 bytes",
+    "modules": [
+        "JS files within python-master.zip",
+        "Python files within python-master.zip"
+    ],
+    "modules_count": 2,
+    "findings": [
+        {
+            "cwe_id": "601",
+            "display_text": "<span>This call to django.http.HttpResponseRedirect() contains a URL redirection to untrusted site flaw.  Writing unsanitized user-supplied input into a URL value could cause the web application to redirect the request to the specified URL, leading to phishing attempts to steal user credentials.</span> <span>Always validate user-supplied input to ensure that it conforms to the expected format, using centralized data validation routines when possible. </span> <span>References: <a href=\"http://cwe.mitre.org/data/definitions/601.html\">CWE</a> <a href=\"http://www.owasp.org/index.php/Open_redirect\">OWASP</a> <a href=\"http://webappsec.pbworks.com/URL-Redirector-Abuse\">WASC</a></span>\n",
+            "files": {
+                "source_file": {
+                    "file": "src/polls/views.py",
+                    "function_name": "new",
+                    "function_prototype": "",
+                    "line": 60,
+                    "qualified_function_name": "",
+                    "scope": ""
+                }
+            },
+            "gob": "B",
+            "issue_id": 1000,
+            "issue_type": "URL Redirection to Untrusted Site ('Open Redirect')",
+            "issue_type_id": "taint",
+            "severity": 3,
+            "title": "url_redirection_python_601"
+        },
+        {
+            "cwe_id": "601",
+            "display_text": "<span>This call to django.http.HttpResponseRedirect() contains a URL redirection to untrusted site flaw.  Writing unsanitized user-supplied input into a URL value could cause the web application to redirect the request to the specified URL, leading to phishing attempts to steal user credentials.</span> <span>Always validate user-supplied input to ensure that it conforms to the expected format, using centralized data validation routines when possible. </span> <span>References: <a href=\"http://cwe.mitre.org/data/definitions/601.html\">CWE</a> <a href=\"http://www.owasp.org/index.php/Open_redirect\">OWASP</a> <a href=\"http://webappsec.pbworks.com/URL-Redirector-Abuse\">WASC</a></span>\n",
+            "files": {
+                "source_file": {
+                    "file": "src/polls/views.py",
+                    "function_name": "vote",
+                    "function_prototype": "",
+                    "line": 79,
+                    "qualified_function_name": "",
+                    "scope": ""
+                }
+            },
+            "gob": "B",
+            "issue_id": 1001,
+            "issue_type": "URL Redirection to Untrusted Site ('Open Redirect')",
+            "issue_type_id": "taint",
+            "severity": 3,
+            "title": "url_redirection_python_601"
+        },
+        {
+            "cwe_id": "215",
+            "display_text": "<span>Enabling django.DEBUG() property exposes debug information that may expose sensitive information which an attacker can use to fingerprint the application. This information can be used by an attacker in executing other more sophisticated attacks and can also enable the attacker to target known vulnerabilities in application components.</span><span>Make sure, () property is disabled, in production configurations.</span><span>References: <a href=\"http://cwe.mitre.org/data/definitions/215.html\">CWE</a></span>\n",
+            "files": {
+                "source_file": {
+                    "file": "src/website/settings.py",
+                    "function_name": null,
+                    "function_prototype": "",
+                    "line": 26,
+                    "qualified_function_name": "",
+                    "scope": ""
+                }
+            },
+            "gob": "B",
+            "issue_id": 1002,
+            "issue_type": "Information Exposure Through Debug Information",
+            "issue_type_id": "t",
+            "severity": 2,
+            "title": "exposed_debug_python_215"
+        },
+        {
+            "cwe_id": "183",
+            "display_text": "<span>The django.ALLOWED_HOSTS() property is configured with atleast one value such as using wildcards(*), which might allow this application to be accessed by an untrusted domain. This could open up your application to same kinds of attacks as XSS, or arbitrary execution of untrusted javascript on your servers.</span><span>Make sure, domains allowed to communicate with your applications, are carefully allowlisted and configured accordingly.</span><span>References: <a href=\"https://cwe.mitre.org/data/definitions/183.html\">CWE</a></span>\n",
+            "files": {
+                "source_file": {
+                    "file": "src/website/settings.py",
+                    "function_name": null,
+                    "function_prototype": "",
+                    "line": 28,
+                    "qualified_function_name": "",
+                    "scope": ""
+                }
+            },
+            "gob": "B",
+            "issue_id": 1003,
+            "issue_type": "Permissive List of Allowed Inputs",
+            "issue_type_id": "t",
+            "severity": 3,
+            "title": "permissive_whitelist_python_183"
+        }
+    ]
+}
