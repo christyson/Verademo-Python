@@ -1,4 +1,4 @@
-# verademo-python
+# Verademo-Python
 
 Based on the Django 1.11 'Polls' tutorial app
 
