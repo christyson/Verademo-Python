@@ -68,7 +68,7 @@ jobs:
     - uses: actions/upload-artifact@v2
       with:
         name: filtered-results
-        path: filtered_results.json
+        path: /github/home/filtered_results.json
         
 # This step will import the flaws from the step above
   import-issues:
