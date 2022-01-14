@@ -64,3 +64,24 @@ jobs:
       with:
         name: ScanResults
         path: /github/home/results.json
+        
+    - uses: actions/upload-artifact@v2
+      with:
+        name: filtered-results
+        path: filtered_results.json
+        
+# This step will import the flaws from the step above
+  import-issues:
+    needs: pipeline-scan
+    runs-on: ubuntu-latest
+    steps:
+      - name: get scan results
+        uses: actions/download-artifact@v2
+        with:
+          name: filtered-results
+
+      - name: import flaws as issues
+        uses: buzzcode/veracode-flaws-to-issues@v1
+        with:
+          scan-results-json: 'filtered_results.json'
+          github-token: ${{ secrets.GITHUB_TOKEN }}
