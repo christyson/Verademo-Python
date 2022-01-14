@@ -38,4 +38,4 @@ jobs:
           filepath: 'project.zip'
           vid: '${{ secrets.VERACODE_API_ID }}'
           vkey: '${{ secrets.VERACODE_API_KEY }}'
-          scantimeout: 15
+          scantimeout: 30
