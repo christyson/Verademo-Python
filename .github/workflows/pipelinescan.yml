@@ -60,10 +60,10 @@ jobs:
         java -jar /opt/veracode/pipeline-scan.jar --veracode_api_id="${{secrets.VERACODE_API_ID}}" --veracode_api_key="${{secrets.VERACODE_API_KEY}}" --fail_on_severity="Very High, High, Medium, Low, Very Low" --file="project.zip" --json_output_file="results.json" --issue_details="true"
       continue-on-error: true
 
-    - uses: actions/upload-artifact@v2
-      with:
-        name: ScanResults
-        path: /github/home/results.json
+#    - uses: actions/upload-artifact@v2
+#      with:
+#        name: ScanResults
+#        path: /github/home/results.json
         
     - uses: actions/upload-artifact@v2
       with:
