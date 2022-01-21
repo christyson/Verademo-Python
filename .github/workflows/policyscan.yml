@@ -39,7 +39,8 @@ jobs:
           vid: '${{ secrets.VERACODE_API_ID }}'
           vkey: '${{ secrets.VERACODE_API_KEY }}'
           scantimeout: 30
-
+        continue-on-error: true
+        
 # this first step will get existing flaws for an Application Profile (in this case, NodeGoat).  
 # 	(obviously) Change the name=<app_name> in the first http call to be 
 #	the name of your Application on the Veracode platform
