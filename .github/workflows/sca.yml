@@ -90,15 +90,18 @@ jobs:
         uses: actions/setup-python@v2
         with:
           python-version: 3.7.1
-#      - name: Install pipenv
-#        run: pip install pipenv
+      - name: Install pipenv
+        run: |
+          pip install pipenv
+          pipenv install -r path/to/requirements.txt
 #      - name: Install requirements
 #        run: pip install -r requirements.txt
       - name: Run Veracode SCA
         env:
           SRCCLR_API_TOKEN: ${{ secrets.SRCCLR_API_TOKEN }}
         run: |
-         curl -sSL https://download.sourceclear.com/ci.sh | sh -s -- scan --debug --skip-collectors pipenv
+#         curl -sSL https://download.sourceclear.com/ci.sh | sh -s -- scan --debug --skip-collectors pipenv
+         curl -sSL https://download.sourceclear.com/ci.sh | sh -s -- scan --debug
 #        uses: Lerer/veracode-sca@v1.0.1 
 #        uses: lerer/veracode-sca@fix-execSync-buffer-overflow
 #        with:
