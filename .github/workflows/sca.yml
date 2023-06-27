@@ -70,10 +70,11 @@
 #            core.setFailed(`Found ${process.env.VULN_NUM} Risk Vulnerabilities in your open source libraries`);
 name: Veracode SCA Scan
 #
-on: 
+on:
   push:
-    paths-ignore:
-      - "README.md"
+    branches:
+      - master
+      - main      
   schedule:
     - cron: 15 14 * * 6
 
