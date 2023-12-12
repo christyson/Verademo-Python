@@ -90,11 +90,11 @@ jobs:
       - name: Setup Python
         uses: actions/setup-python@v2
         with:
-          python-version: 3.6
+          python-version: 3.7.17
       - name: Install pipenv
         run: |
           pip install pipenv
-          pipenv install    --python=3.6 -r requirements.txt
+          pipenv install    --python=3.7.17 -r requirements.txt
 #      - name: Install requirements
 #        run: pip install -r requirements.txt
       - name: Run Veracode SCA
