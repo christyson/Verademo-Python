@@ -94,7 +94,8 @@ jobs:
       - name: Install pipenv
         run: |
           pip install pipenv
-          pipenv install    --python=3.7 -r requirements.txt
+          pipenv install -r requirements.txt
+          #pipenv install    --python=3.7 -r requirements.txt
 #      - name: Install requirements
 #        run: pip install -r requirements.txt
       - name: Run Veracode SCA
