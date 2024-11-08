@@ -65,10 +65,10 @@ jobs:
 #        name: ScanResults
 #        path: /github/home/results.json
         
-#    - uses: actions/upload-artifact@v4.4.3
-#      with:
-#        name: filtered-results
-#        path: /github/home/filtered_results.json
+    - uses: actions/upload-artifact@v4.4.3
+      with:
+        name: filtered-results
+        path: /github/home/filtered_results.json
         
 # This step will import the flaws from the step above
   import-issues:
