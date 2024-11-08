@@ -37,7 +37,7 @@ steps:
           export SRCCLR_SCM_REF=master
           export SRCCLR_SCM_REF_TYPE=branch
           export SRCCLR_SCM_REV=123456
-          curl -sSL https://download.sourceclear.com/ci.sh | bash -s -- scan --update-advisor
+          curl -sSL https://download.sourceclear.com/ci.sh | bash -s -- scan --update-advisor --allow-dirty
 - task: Veracode@3
   displayName: 'Run a Veracode SAST Scan'
   inputs:
