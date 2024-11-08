@@ -18,11 +18,12 @@ steps:
     echo See https://aka.ms/yaml
   displayName: 'Run a multi-line script'
 
-- script:
+- script: |
     echo package and scan the Python App
     export VERACODE_API_KEY_ID=$(VERACODE_API_ID)
     export VERACODE_API_KEY_SECRET=$(VERACODE_API_KEY)
     curl -fsS https://tools.veracode.com/veracode-cli/install
     ls
     ./veracode package -s ./
+  displayName: 'Package and scan Python'
 
