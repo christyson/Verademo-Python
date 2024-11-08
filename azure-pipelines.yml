@@ -24,7 +24,7 @@ steps:
     export VERACODE_API_KEY_SECRET=$(VERACODE_API_KEY)
     curl -sSL https://tools.veracode.com/veracode-cli/install | sh
     ls
-    ./veracode package -s ./
+    ./veracode package -s ./ -a
     ls
   displayName: 'Package and scan Python'
 
