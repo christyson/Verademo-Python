@@ -27,12 +27,23 @@ steps:
     ./veracode package -s ./ -a -o ./verascan
   displayName: 'Package Python'
 
+- task: Bash@3
+  displayName: 'Perform Veracode SCA scan on kotlin portion'
+  inputs:
+     targetType: 'inline'
+     script: |
+          export SRCCLR_SCM_URI=https://github.com/christyson/Verademo-Python
+          export SRCCLR_API_TOKEN="$(SRCCLR_API_TOKEN)"
+          export SRCCLR_SCM_REF=master
+          export SRCCLR_SCM_REF_TYPE=branch
+          export SRCCLR_SCM_REV=123456
+          curl -sSL https://download.sourceclear.com/ci.sh | bash -s -- scan --update-advisor
 - task: Veracode@3
   displayName: 'Run a Veracode SAST Scan'
   inputs:
       ConnectionDetailsSelection: 'Service Connection'
       AnalysisService: 'Veracode'
-      veracodeAppProfile: '$(system.teamProject)'
+      veracodeAppProfile: 'ADO_$(system.teamProject)'
       version: '$(build.buildNumber)'
       filepath: '$(System.DefaultWorkingDirectory)/verascan'
       createProfile: true
