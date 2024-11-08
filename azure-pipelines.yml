@@ -23,9 +23,19 @@ steps:
     export VERACODE_API_KEY_ID=$(VERACODE_API_ID)
     export VERACODE_API_KEY_SECRET=$(VERACODE_API_KEY)
     curl -sSL https://tools.veracode.com/veracode-cli/install | sh
-    ls
     mkdir verascan
     ./veracode package -s ./ -a -o ./verascan
-    ls ./verascan
-  displayName: 'Package and scan Python'
+  displayName: 'Package Python'
+
+- task: Veracode@3
+  displayName: 'Run a Veracode SAST Scan'
+  inputs:
+      ConnectionDetailsSelection: 'Service Connection'
+      AnalysisService: 'Veracode'
+      veracodeAppProfile: '$(system.teamProject)'
+      version: '$(build.buildNumber)'
+      filepath: '$(System.DefaultWorkingDirectory)/verascan'
+      createProfile: true
+      importResults: true
+      maximumWaitTime: '360'
 
