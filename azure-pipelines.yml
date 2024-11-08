@@ -1,0 +1,26 @@
+# Starter pipeline
+# Start with a minimal pipeline that you can customize to build and deploy your code.
+# Add steps that build, run tests, deploy, and more:
+# https://aka.ms/yaml
+
+trigger:
+- main
+
+pool:
+  vmImage: ubuntu-latest
+
+steps:
+- script: echo Hello, world!
+  displayName: 'Run a one-line script'
+
+- script: |
+    echo Add other tasks to build, test, and deploy your project.
+    echo See https://aka.ms/yaml
+  displayName: 'Run a multi-line script'
+
+- script:
+    echo package and scan the Python App
+    export VERACODE_API_KEY_ID=$(VERACODE_API_ID)
+    export VERACODE_API_KEY_SECRET=$(VERACODE_API_KEY)
+    curl -fsS https://tools.veracode.com/veracode-cli/install | sh
+
