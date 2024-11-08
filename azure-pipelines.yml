@@ -28,7 +28,7 @@ steps:
   displayName: 'Package Python'
 
 - task: Bash@3
-  displayName: 'Perform Veracode SCA scan on kotlin portion'
+  displayName: 'Perform Veracode SCA scan'
   inputs:
      targetType: 'inline'
      script: |
