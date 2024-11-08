@@ -25,7 +25,7 @@ jobs:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v2
+    - uses: actions/checkout@v4.2.2
         
   # zip the project and move it to a staging directory
     - name: Zip Project
@@ -34,7 +34,7 @@ jobs:
         build-name: project.zip
       
     - name: Archive package
-      uses: actions/upload-artifact@v2
+      uses: actions/upload-artifact@v4.4.3
       with:
         name: CodePackage
         path: project.zip
@@ -48,7 +48,7 @@ jobs:
 
     steps:
     - name: Retrieve artifact
-      uses: actions/download-artifact@v2
+      uses: actions/download-artifact@v4.1.8
       with:
         name: CodePackage
         path: /github/home
