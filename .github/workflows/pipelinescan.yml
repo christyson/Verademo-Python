@@ -65,7 +65,7 @@ jobs:
 #        name: ScanResults
 #        path: /github/home/results.json
         
-    - uses: actions/upload-artifact@v2
+    - uses: actions/upload-artifact@v4.4.3
       with:
         name: filtered-results
         path: /github/home/filtered_results.json
@@ -76,7 +76,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: get scan results
-        uses: actions/download-artifact@v2
+        uses: actions/download-artifact@v4.1.8
         with:
           name: filtered-results
 
