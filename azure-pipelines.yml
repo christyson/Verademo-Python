@@ -32,6 +32,7 @@ steps:
   inputs:
      targetType: 'inline'
      script: |
+          pip install pipenv
           export SRCCLR_SCM_URI=https://github.com/christyson/Verademo-Python
           export SRCCLR_API_TOKEN="$(SRCCLR_API_TOKEN)"
           export SRCCLR_SCM_REF=master
